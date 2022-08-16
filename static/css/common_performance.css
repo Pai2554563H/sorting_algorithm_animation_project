@@ -1,0 +1,19 @@
+ /* PAI HUANG */
+
+/* performance *********************************************************************************/
+/* table setting */
+
+#performance_table tbody tr:hover{
+    background-color: #d4f7e7;
+}
+
+#performacne_logs tbody tr:hover{
+    background-color: #f7d4d7;
+}
+
+#running_success{
+    display: none;
+}
+#running_wait{
+    display: none;
+}

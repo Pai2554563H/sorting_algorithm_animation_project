@@ -1,0 +1,217 @@
+ /* PAI HUANG */
+
+ /* UI menu */
+ /* https://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0 */
+
+ .navbar-default {
+  background-color: #007bff;
+  border-color: #e7fafe;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ffff99;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #000000;
+  background-color: #e7fafe;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #007bff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #000000;
+  background-color: #e7fafe;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li.divider {
+  background-color: #e7fafe;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #000000;
+  background-color: #e7fafe;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #000000;
+  background-color: #e7fafe;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #000000;
+  background-color: #e7fafe;
+}
+.navbar-default .navbar-toggle {
+  border-color: #e7fafe;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #e7fafe;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #000000;
+    background-color: #e7fafe;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #000000;
+    background-color: #e7fafe;
+  }
+}
+
+body{
+    background-color: #e7fafe;
+}
+
+/* setting font */
+.jumbotron{
+    background-color: #ffffff;
+}
+.jumbotron h1{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.jumbotron blockquote{
+  font-family: 'Comic Sans MS', Georgia, 'Times New Roman', serif;
+  font-style:italic;
+}
+.navbar{
+  font-family:'Courier New', Courier, monospace;
+}
+
+/* setting for warning panel */
+.panel-warning .panel-body{
+    text-align: center;
+    min-height: 210px;
+}
+.panel-warning .panel-body .row{
+    padding:5px;
+}
+.panel-warning .panel-body hr{
+    border: none;
+    height: 1px;
+    background-color:#ffe699;
+}
+/* setting for info panel */
+.panel-info .panel-body{
+  min-height: 210px;
+}
+.panel-primary .panel-body{
+  /* width:auto; */
+  min-height: 600px;
+}
+/* .panel .panel-primary{
+  padding: 5px;
+} */
+
+
+/* button setting */
+.btn-group .btn{
+    width: 160px;
+}
+
+/* Scrollspy Plugin */
+  .affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+
+
+  /* footer */
+.page-header{
+  text-align: center;
+  font-family:'Courier New', Courier, monospace;
+}
+
+  /* index part */
+
+#related_links{
+  text-align: center;
+  font-family: 'Comic Sans MS', Georgia, 'Times New Roman', serif;
+  font-style:italic;
+}
+
+.index_button {
+  display: inline-block;
+  border-radius: 12px;
+  background-color: #007bff;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+	vertical-align:middle;
+  font-family: 'Comic Sans MS', Georgia, 'Times New Roman', serif;
+}
+
+.index_button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.index_button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.index_button:hover span {
+  padding-right: 25px;
+}
+
+.index_button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#index_menu p{
+  font-size: 16px;
+  font-family: 'Comic Sans MS', Georgia, 'Times New Roman', serif;
+  font-style:italic;
+}
+

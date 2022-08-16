@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>
+            
+            {% block title_block %}
+            Project - Hello, world!
+            {% endblock %}
+        </title>
+        
+        {% block css_block %}
+            <!-- This is css_block's default content. -->
+        {% endblock %}
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- CSS for animating -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/common_UI.css' %}">
+
+    </head>
+
+    <body>
+        <!-- menu-->
+        <!-- deal with hiden nav bar -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Test</a>
+                  </div>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><strong>Home</strong></a></li>
+                    <li><a href="#"><strong>Sorting Algorithm</strong></a></li>
+                    <li><a href="#"><strong>Algorithm Perfromance</strong></a></li>
+                  </ul>
+            </div>
+        </nav> 
+
+        {% block navigation %}
+            <!-- This is navigation's default content. -->
+        {% endblock %}
+
+        <div class="container" id='workplace'>
+            {% block workplace %}
+                <!-- This is workplace's default content. -->
+            {% endblock %}
+
+            <div class="page-header" id="footer"> 
+                <small>Copyright &copy; 2022 Sorting Algorithm Animation. All Rights Reserved.</small>
+                <address>
+                    Designed and built by <a href="mailto:2554563H@student.gla.ac.uk">Pai Huang</a>.
+                </address>
+            </div>
+        </div>
+
+        <!-- javascript -->
+
+        {% block js_block %}
+                <!-- This is js_block's default content. -->
+        {% endblock %}
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="{% static 'js/common_function.js' %}"></script>
+    
+    </body>
+</html>

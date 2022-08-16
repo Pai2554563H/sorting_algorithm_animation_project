@@ -1,0 +1,70 @@
+{% extends 'base_animation.html' %}
+{% load staticfiles %}
+
+{% block algorithm_name %}
+    Bubble Sort
+{% endblock %}
+
+{% block page_header %}
+<h1>Bubble Sorting Algorithm!</h1>
+<blockquote class="blockquote-reverse">
+    <p>
+        Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order.
+    </p>
+    <p>
+        This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high.
+    </p>
+    <small>This information is from <cite title="Source Title"><a href="https://www.geeksforgeeks.org/bubble-sort/">GeeksforGeeks</a></cite></small>
+</blockquote>
+{% endblock %}
+
+{% block algorithm_code %}
+<pre><p id="code_part_0">procedure bubbleSort(list : array of items)</p><p id="code_part_1">    loop = list.count;</p><p id="code_part_2">    for i = 0 to loop-1 do:<br>    swapped = false</p><p id="code_part_3">        for j = 0 to loop-1 do:</p><p id="code_part_4">        /* compare the adjacent elements */<br>            if list[j] > list[j+1] then</p><p id="code_part_5">                /* swap them */<br>                swap( list[j], list[j+1] )<br>                swapped = true</p><p id="code_part_6">            end if<br>        end for</p><p id="code_part_7">    /*if no number was swapped that means<br>    array is sorted now, break the loop.*/<br>        if(not swapped) then<br>            break<br>        end if</p><p id="code_part_8">    end for</p><p id="code_part_9">end procedure return list</p>
+</pre>   
+<blockquote class="blockquote-reverse">
+    <small>This information is from <cite title="Source Title"><a href="https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm">TutorialsPoint</a></cite></small>
+</blockquote>
+
+<!-- procedure bubbleSort( list : array of items )
+        loop = list.count;
+        for i = 0 to loop-1 do:
+            swapped = false
+            for j = 0 to loop-1 do:
+                /* compare the adjacent elements */   
+                if list[j] > list[j+1] then
+                    /* swap them */
+                    swap( list[j], list[j+1] )		 
+                    swapped = true
+                end if
+            end for
+            /*if no number was swapped that means 
+            array is sorted now, break the loop.*/
+            if(not swapped) then
+                break
+            end if
+        end for                    
+    end procedure return list -->
+{% endblock %}
+
+{% block algorithm_legend %}
+<div class="col-xs-12 col-sm-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16"  style="background-color: #adb5bd;">
+        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg> Waiting
+    
+</div>
+<div class="col-xs-12 col-sm-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16"  style="background-color: #0dcaf0;">
+        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg> Active
+</div>
+<div class="col-xs-12 col-sm-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16"  style="background-color: #dc3545;">
+        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg> Sorted
+</div>
+{% endblock %}
+
+{% block js_algorithm %}
+<script type="text/javascript" src="{% static 'js/bubble_sort.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+<!-- for static files -->
+{% load staticfiles %}
+
+{% block title_block %}
+    Performance of Sorting Algorithms
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common_performance.css' %}">
+
+    <!-- math formula display -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+{% endblock %}
+
+{% block navigation %}
+<nav class="navbar navbar-default" data-spy="affix">
+
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#top"><strong>Sorting Algorithm Animation</strong></a>
+          </div>
+
+          <!-- https://www.w3schools.com/bootstrap/bootstrap_glyphicons.asp -->
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'index:home' %}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                  <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                </svg>
+                <strong>Home</strong></a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code" viewBox="0 0 16 16">
+                  <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+                </svg>
+                <strong>Sorting Algorithm</strong>
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'sorting_algorithm:bubble_sorting' %}">Bubble</a></li>
+                  <li><a href="{% url 'sorting_algorithm:insertion_sorting' %}">Insertion</a></li>
+                  <li><a href="{% url 'sorting_algorithm:selection_sorting' %}">Selection</a></li>
+                </ul>
+              </li>
+            <li class="active"><a href="{% url 'sorting_algorithm_performance:algorithm_performance' %}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
+                  <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+                  <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+                </svg>
+                <strong>Algorithm Perfromance</strong></a></li>
+
+          </ul>
+    </div>
+
+</nav>
+{% endblock %}
+
+{% block workplace %}
+<div class="row">
+    <div class="jumbotron">
+        <!-- jumbotron page-header-->
+        <h1>Algorithm Performance!</h1>
+        <blockquote>
+            <p>This page provides information on algorithm performance (including time complexity and space complexity). 
+                It calculates the average running time consumed by each sorting algorithm to sort random arrays as sorting algorithm performance.</p>
+        </blockquote>    
+
+   </div>
+</div>
+
+<div class="row" >
+    <div id="performance_table" class="panel panel-success">
+        <div class="panel-heading"><strong>Sorting Algorithm Performance</strong></div>
+        <div class="panel-body table-responsive">
+            <table class="table">
+                <!-- <caption>Algorithm Performance</caption> -->
+                
+                <thead>
+                    <tr>
+                        <th>Algorithm</th>
+                        <th>Average Complexity</th>
+                        <th>Best Case</th>
+                        <th>Worst Case</th>
+                        <th>Space Complexity</th>
+                        <th>Category</th>
+                        <th>Stable</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Bubble</td>
+                        <td>\(O(n^2)\)</td>
+                        <td>\(O(n)\)</td>
+                        <td>\(O(n^2)\)</td>
+                        <td>\(O(1)\)</td>
+                        <td>\(ExChange\)</td>
+                        <td>\(Yes\)</td>
+                    </tr>
+                    <tr>
+                        <td>Insertion</td>
+                        <td>\(O(n^2)\)</td>
+                        <td>\(O(n)\)</td>
+                        <td>\(O(n^2)\)</td>
+                        <td>\(O(1)\)</td>
+                        <td>\(Insertion\)</td>
+                        <td>\(Yes\)</td>
+                    </tr>
+                    <tr>
+                        <td>Selection</td>
+                        <td>\(O(n^2)\)</td>
+                        <td>\(O(n^2)\)</td>
+                        <td>\(O(n^2)\)</td>
+                        <td>\(O(1)\)</td>
+                        <td>\(Selection\)</td>
+                        <td>\(No\)</td>
+                    </tr>
+                    <tr>
+                        <td>Quick</td>
+                        <td>\(O(n*log(n))\)</td>
+                        <td>\(O(n*log(n))\)</td>
+                        <td>\(O(n^2)\)</td>
+                        <td>\(O(log(n))\)</td>
+                        <td>\(ExChange\)</td>
+                        <td>\(No\)</td>
+                    </tr>
+                    <tr>
+                        <td>Merge</td>
+                        <td>\(O(n*log(n))\)</td>
+                        <td>\(O(n*log(n))\)</td>
+                        <td>\(O(n*log(n))\)</td>
+                        <td>\(O(n)\)</td>
+                        <td>\(Merge\)</td>
+                        <td>\(Yes\)</td>
+                    </tr>
+                </tbody>
+                    
+              </table>
+        </div>
+    </div>
+</div>
+
+<!-- initial condition -->
+<div class="row" >
+
+    <div class="panel panel-warning">
+        <div class="panel-heading"><strong>Choosing Initial Condition and Play</strong></div>
+        <div class="panel-body">
+            <div class="row">
+
+                <br>
+                <form class="form-inline" action="/action_page.php">
+                    <div class="form-group has-warning">
+                        <label>There are </label>
+                        <input type="number" class="form-control" placeholder="Enter positive integer" id="n_array" min="1" value="10"
+                        data-toggle="tooltip" data-placement="top" title="Please enter positive integer!">
+                        <label> Arrays.</label>
+                    </div>
+                    <div class="form-group has-warning">
+                        <label>There are </label>
+                        <input type="number" class="form-control" placeholder="Enter positive integer" id="n_bars" min="3" value="10000"
+                        data-toggle="tooltip" data-placement="top" title="Please enter positive integer!">
+                        <label> Elements in an Array.</label>
+                    </div>
+                    
+                </form>
+            </div>
+            <!-- <hr class="divider"> -->
+            <br>
+            <div class="row btn-group" id="buttons">
+                    
+                <button type="button" class="btn btn-primary" onclick="RandomPerformance()">Random</button>
+                <button type="button" class="btn btn-success" onclick="NearlyPerformance()">Nearly Sorted</button>
+                <button type="button" class="btn btn-warning" onclick="ReversedPerformance()">Reversed Sorted</button>
+                <button type="button" class="btn btn-danger" onclick="UniquePerformance()">Few Unique</button>
+            </div>
+            <div class="row">
+                <br>
+                <p class="text-danger">Tip: Details of the initial conditions can be found in the [<strong><var>Sorting Algorithm Animation</var></strong>] window on the [<strong><var>Sorting Algorithm</var></strong>] page.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="alert alert-success" id="running_success">
+        <strong>Success!</strong> The web application has finished running.
+    </div>
+    <div class="alert alert-warning" id="running_wait">
+        <strong>Waiting!</strong> Please give the web application some uptime.
+    </div>
+</div>
+
+<!-- show performance using running time -->
+<div class="row" >
+    <div id="performacne_logs" class="panel panel-danger">
+        <div class="panel-heading"><strong>Performance Logs</strong></div>
+        <div class="panel-body table-responsive">
+            <table id="performacne_logs_table" class="table">
+                <!-- <caption>Performance Logs</caption> -->
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Number of Array</th>
+                        <th>Number of Elements per Array</th>
+                        <th>Initial Condition</th>
+                        <th>Algorithm Order by Average Running Time (ms)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <th>10</th>
+                        <th>10000</th>
+                        <th>Random</th>
+                        <th>Quick [1] << Merge [6.3] << Insert [49.8] << Select [62.7] << Bubble [129.7] <<</th>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_block %}
+<script type="text/javascript" src="{% static 'js/sort_algorithm.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/sort_algorithm_performance.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Home
+{% endblock %}
+
+{% block css_block %}
+{% endblock %}
+
+{% block navigation %}
+<nav class="navbar navbar-default" data-spy="affix">
+
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#top"><strong>Sorting Algorithm Animation</strong></a>
+          </div>
+
+          <!-- https://www.w3schools.com/bootstrap/bootstrap_glyphicons.asp -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="{% url 'index:home' %}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                  <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                </svg>
+                <strong>Home</strong></a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code" viewBox="0 0 16 16">
+                  <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+                </svg>
+                <strong>Sorting Algorithm</strong>
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'sorting_algorithm:bubble_sorting' %}">Bubble</a></li>
+                  <li><a href="{% url 'sorting_algorithm:insertion_sorting' %}">Insertion</a></li>
+                  <li><a href="{% url 'sorting_algorithm:selection_sorting' %}">Selection</a></li>
+                </ul>
+              </li>
+            <li><a href="{% url 'sorting_algorithm_performance:algorithm_performance' %}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
+                  <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+                  <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+                </svg>
+                <strong>Algorithm Perfromance</strong></a></li>
+          </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block workplace %}
+    <!-- <h1>Index says...this is home page</h1> -->
+
+    <div class="row">
+        <div class="jumbotron" id="index">
+            <!-- jumbotron page-header-->
+            <h1>Wellcome to <br>Sorting Algorithm Animation!</h1>
+            <blockquote>
+                <p>
+                    This is a web application to help beginner programmers understand the basics of sorting algorithms by animating sorting algorithms and comparing the performance of these algorithms.
+                    
+                </p>
+            </blockquote>
+
+            <div id="index_menu">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <br>
+                        <p>
+                            Explaining the animation of sorting algorithms with the steps of the pseudocode.
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <a href="{% url 'sorting_algorithm:bubble_sorting' %}">
+                            <button class="index_button"><strong><span>Animation </span></strong></button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <br>
+                        <p>
+                            Comparing the performance of sorting algorithms by average running time.
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <a href="{% url 'sorting_algorithm_performance:algorithm_performance' %}">
+                            <button class="index_button"><strong><span>Performance </span></strong></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+       </div>
+    </div>
+    
+    <div class="row">
+        <div class="panel panel-danger">
+            <div class="panel-heading">Related Resource Links</div>
+            <div class="panel-body" id="related_links">
+                <a href="https://www.geeksforgeeks.org/sorting-algorithms/?ref=lbp">Introduction of Sorting Algorithm [Sample 1]</a><br>
+                <a href="https://www.tutorialspoint.com/data_structures_algorithms/sorting_algorithms.htm">Introduction of Sorting Algorithm [Sample 2]</a><br>
+                <a href="https://visualgo.net/en/sorting?slide=1">Animation of Sorting Algorithm [Sample 1]</a><br>
+                <a href="https://www.sortvisualizer.com/">Animation of Sorting Algorithm [Sample 2]</a><br>
+                <a href="https://www.toptal.com/developers/sorting-algorithms">Comparative Performance of Sorting Algorithm [Sample 1]</a><br>
+                <a href="https://math.hws.edu/eck/js/sorting/xSortLab.html">Comparative performance of Sorting Algorithm [Sample 2]</a><br>
+                <a href="https://caspervonb.xyz/toneofsorting/">Fun of Sorting Algorithm with music [Sample 1]</a><br>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div><img src="{% static 'images/login_background.jpg'%}" alt="University" width="600"/></div> -->
+{% endblock %}
+
+{% block js_block %}
+{% endblock %}
+

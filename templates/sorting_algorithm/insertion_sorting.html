@@ -1,0 +1,83 @@
+{% extends 'base_animation.html' %}
+{% load staticfiles %}
+
+{% block algorithm_name %}
+    Insertion Sort
+{% endblock %}
+
+{% block page_header %}
+<h1>Insertion Sorting Algorithm!</h1>
+<blockquote class="blockquote-reverse">
+    <p>
+        Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. 
+    </p>
+    <p>
+        The array is virtually split into a sorted and an unsorted part. 
+    </p>
+    <p>
+        Values from the unsorted part are picked and placed at the correct position in the sorted part.
+    </p>
+    <small>This information is from <cite title="Source Title"><a href="https://www.geeksforgeeks.org/insertion-sort/">GeeksforGeeks</a></cite></small>
+</blockquote>
+{% endblock %}
+
+{% block algorithm_code %}
+<pre><p id="code_part_0">procedure insertionSort(A : array of items)</p><p id="code_part_1">    int holePosition<br>    int valueToInsert</p><p id="code_part_2">    for i = 1 to length(A) inclusive do:</p><p id="code_part_3">        /* select value to be inserted */<br>        valueToInsert = A[i]<br>        holePosition = i</p><p id="code_part_4">/*locate hole position for the element<br>                        to be inserted */<br>        while holePosition > 0 and A[holePosition-1] > valueToInsert do:<br>            A[holePosition] = A[holePosition-1]<br>            holePosition = holePosition -1<br>        end while</p><p id="code_part_5">  /* insert the number at hole position */<br>        A[holePosition] = valueToInsert</p><p id="code_part_6">    end for</p><p id="code_part_7">end procedure return list</p>
+</pre>
+<blockquote class="blockquote-reverse">
+    <small>This information is from <cite title="Source Title"><a href="https://www.tutorialspoint.com/data_structures_algorithms/insertion_sort_algorithm.htm">TutorialsPoint</a></cite></small>
+</blockquote>
+
+<!-- procedure insertionSort( A : array of items )
+int holePosition
+int valueToInsert
+    
+for i = 1 to length(A) inclusive do:
+    
+    /* select value to be inserted */
+    valueToInsert = A[i]
+    holePosition = i
+    
+    /*locate hole position for the element to be inserted */
+        
+    while holePosition > 0 and A[holePosition-1] > valueToInsert do:
+        A[holePosition] = A[holePosition-1]
+        holePosition = holePosition -1
+    end while
+        
+    /* insert the number at hole position */
+    A[holePosition] = valueToInsert
+    
+end for
+    
+end procedure -->
+
+{% endblock %}
+
+{% block algorithm_legend %}
+<div class="col-xs-12 col-sm-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16"  style="background-color: #adb5bd;">
+        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg> Waiting
+    
+</div>
+<div class="col-xs-12 col-sm-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16"  style="background-color: #0dcaf0;">
+        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg> Active
+</div>
+<div class="col-xs-12 col-sm-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16"  style="background-color: #ffc107;">
+        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg> Compared
+</div>
+<div class="col-xs-12 col-sm-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16"  style="background-color: #dc3545;">
+        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg> Sorted
+</div>
+{% endblock %}
+
+{% block js_algorithm %}
+<script type="text/javascript" src="{% static 'js/insertion_sort.js' %}"></script>
+{% endblock %}

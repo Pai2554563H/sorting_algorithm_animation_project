@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+<!-- for static files -->
+{% load staticfiles %}
+
+{% block title_block %}
+    Bubble Sort
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common_function.css' %}">
+
+{% endblock %}
+
+{% block body_block %}
+    <h1>Insertion says...</h1>
+    <div>
+        <br />
+        <strong>{{ boldmessage }}</strong><br />
+    </div>
+
+    <div>
+
+        <!-- <img src="{% static 'images/bubble_sorting.gif' %}" alt="Picture of Rango" /> -->
+
+        <div id='workplace' style="padding-top: 50px; ">
+
+            <hr>
+            <!-- initial condition -->
+            Number of bar: <input type="number" id="n_bars" min="2" value="10">
+            <button onclick="RandomDemo()">Random Play</button>
+            <button onclick="NearlyDemo()">Nearly Sorted Play</button>
+            <button onclick="ReversedDemo()">Reversed Sorted Play</button>
+            <button onclick="UniqueDemo()">Few Unique Play</button>
+
+            <hr>
+            <!-- user input -->
+            User Input:  <input type="text" id="user_input" value="1,55,75,83,-33,94,2,49,-40,28,42,20,37,68,99">
+
+            <hr>
+            <!-- demo control -->
+
+            Speed:  <input type="range" id="speed" min="1" max="15" value="5" oninput="displaySpeed()" onchange="displaySpeed()">
+            <span id="display_speed">x 1</span>
+
+            <button onclick="UserInputDemo()">User Play</button>
+            <hr>
+
+            <div id="algorithm_demo"></div>
+
+            <div id="algorithm_code">
+                
+                <pre id="code_part_0">procedure insertionSort( A : array of items )</pre>
+                <pre id="code_part_1">    int holePosition
+                    <br>    int valueToInsert</pre>
+                <pre id="code_part_2">    for i = 1 to length(A) inclusive do:</pre>
+                <pre id="code_part_3">        /* select value to be inserted */
+                    <br>        valueToInsert = A[i]
+                    <br>        holePosition = i</pre>
+                <pre id="code_part_4">        /*locate hole position for the element to be inserted */
+                    <br>        while holePosition > 0 and A[holePosition-1] > valueToInsert do:
+                    <br>            A[holePosition] = A[holePosition-1]
+                    <br>            holePosition = holePosition -1
+                    <br>        end while</pre>
+                <pre id="code_part_5">        /* insert the number at hole position */
+                    <br>        A[holePosition] = valueToInsert</pre>
+                <pre id="code_part_6">    end for</pre>
+                <pre id="code_part_7">end procedure return list</pre>
+
+                <!-- procedure insertionSort( A : array of items )
+                    int holePosition
+                    int valueToInsert
+                        
+                    for i = 1 to length(A) inclusive do:
+                        
+                        /* select value to be inserted */
+                        valueToInsert = A[i]
+                        holePosition = i
+                        
+                        /*locate hole position for the element to be inserted */
+                            
+                        while holePosition > 0 and A[holePosition-1] > valueToInsert do:
+                            A[holePosition] = A[holePosition-1]
+                            holePosition = holePosition -1
+                        end while
+                            
+                        /* insert the number at hole position */
+                        A[holePosition] = valueToInsert
+                        
+                    end for
+                        
+                end procedure -->
+
+            </div>
+
+        </div>
+
+        <!-- javascript -->
+        <script type="text/javascript" src="{% static 'js/common_function.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/common_animation.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/insertion_sort.js' %}"></script>
+
+    </div>
+{% endblock %}

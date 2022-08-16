@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+<!-- for static files -->
+{% load staticfiles %}
+
+{% block title_block %}
+    Bubble Sort
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common_function.css' %}">
+
+{% endblock %}
+
+{% block body_block %}
+    <h1>Selection says...</h1>
+    <div>
+        <br />
+        <strong>{{ boldmessage }}</strong><br />
+    </div>
+
+    <div>
+
+        <!-- <img src="{% static 'images/bubble_sorting.gif' %}" alt="Picture of Rango" /> -->
+
+        <div id='workplace' style="padding-top: 50px; ">
+
+            <hr>
+            <!-- initial condition -->
+            Number of bar: <input type="number" id="n_bars" min="2" value="10">
+            <button onclick="RandomDemo()">Random Play</button>
+            <button onclick="NearlyDemo()">Nearly Sorted Play</button>
+            <button onclick="ReversedDemo()">Reversed Sorted Play</button>
+            <button onclick="UniqueDemo()">Few Unique Play</button>
+
+            <hr>
+            <!-- user input -->
+            User Input:  <input type="text" id="user_input" value="1,55,75,83,-33,94,2,49,-40,28,42,20,37,68,99">
+
+            <hr>
+            <!-- demo control -->
+
+            Speed:  <input type="range" id="speed" min="1" max="15" value="5" oninput="displaySpeed()" onchange="displaySpeed()">
+            <span id="display_speed">x 1</span>
+
+            <button onclick="UserInputDemo()">User Play</button>
+            <hr>
+
+            <div id="algorithm_demo"></div>
+
+            <div id="algorithm_code">
+                
+                <pre id="code_part_0">procedure selectionSort ( list : array of items,
+                    <br>                          n    : size of list)</pre>
+                <pre id="code_part_1">    for i = 1 to n - 1</pre>
+                <pre id="code_part_2">    /* set current element as minimum*/
+                    <br>        min = i</pre>
+                <pre id="code_part_3">        /* check the element to be minimum */
+                    <br>        for j = i+1 to n 
+                    <br>            if list[j] < list[min] then</pre>
+                <pre id="code_part_4">                min = j;</pre>
+                <pre id="code_part_5">            end if
+                    <br>        end for</pre>
+                <pre id="code_part_6">        /* swap the minimum element with the current element*/
+                    <br>        if indexMin != i  then
+                    <br>            swap list[min] and list[i]
+                    <br>        end if</pre>
+                <pre id="code_part_7">    end for</pre>
+                <pre id="code_part_8">end procedure return list</pre>
+
+                <!-- procedure selectionSort 
+                    list  : array of items
+                    n     : size of list
+
+                    for i = 1 to n - 1
+                    /* set current element as minimum*/
+                        min = i    
+                    
+                        /* check the element to be minimum */
+
+                        for j = i+1 to n 
+                            if list[j] < list[min] then
+                                min = j;
+                            end if
+                        end for
+
+                        /* swap the minimum element with the current element*/
+                        if indexMin != i  then
+                            swap list[min] and list[i]
+                        end if
+                    end for
+                        
+                end procedure -->
+
+            </div>
+
+        </div>
+
+        <!-- javascript -->
+        <script type="text/javascript" src="{% static 'js/common_function.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/common_animation.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/selection_sort.js' %}"></script>
+
+    </div>
+{% endblock %}
