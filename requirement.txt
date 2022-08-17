@@ -1,18 +1,8 @@
-astroid @ file:///C:/ci/astroid_1639044399338/work
 certifi==2021.10.8
-colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
 coverage==6.3.2
 Django==2.1.5
-isort @ file:///tmp/build/80754af9/isort_1628603791788/work
-lazy-object-proxy @ file:///C:/ci/lazy-object-proxy_1616529290879/work
 mccabe==0.6.1
 olefile==0.46
 Pillow==8.4.0
-platformdirs @ file:///tmp/build/80754af9/platformdirs_1638968569495/work
-pylint @ file:///C:/ci/pylint_1639650787932/work
 pytz==2021.3
-toml @ file:///tmp/build/80754af9/toml_1616166611790/work
-typed-ast @ file:///C:/ci/typed-ast_1624953789477/work
-typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1631814937681/work
 wincertstore==0.2
-wrapt @ file:///C:/ci/wrapt_1638415942355/work
