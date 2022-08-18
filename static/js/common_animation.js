@@ -92,6 +92,10 @@ function UserInputDemo(){
                 alert("Please enter an array of numbers without special symbols!")
                 return
             }
+            if(numArr[i]>100 || numArr[i]<-100){
+                alert("Please enter an array of numbers in [-100, 100]!")
+                return
+            }
         }
         playDemo(numArr)
     } else{
